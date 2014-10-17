@@ -32,15 +32,18 @@ public class GUIDemo extends JFrame
 			}
 		});
 		
-		try 
-		{
-			URL url = new URL("http://www.nps.gov/arch/photosmultimedia/upload/arches11.jpg");
-			image = Toolkit.getDefaultToolkit().getImage(url);
-		} 
-		catch (MalformedURLException murle) 
-		{
-			JOptionPane.showMessageDialog(this, "Bad URL: " + murle, "Image Error", JOptionPane.ERROR_MESSAGE);
-		}
+//		// Get image from the web
+//		try 
+//		{
+//			URL url = new URL("http://www.nps.gov/arch/photosmultimedia/upload/arches11.jpg");
+//			image = Toolkit.getDefaultToolkit().getImage(url);
+//		} 
+//		catch (MalformedURLException murle) 
+//		{
+//			JOptionPane.showMessageDialog(this, "Bad URL: " + murle, "Image Error", JOptionPane.ERROR_MESSAGE);
+//		}
+		
+		image = Toolkit.getDefaultToolkit().getImage("images/arches11.jpg");
 		
 		MediaTracker tracker = new MediaTracker(this);
 		tracker.addImage(image, 0);
@@ -54,10 +57,24 @@ public class GUIDemo extends JFrame
 			JOptionPane.showMessageDialog(this, "Unable to load image", "Image Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
+		//change the size of the image
+		image = image.getScaledInstance((int)(image.getWidth(this) * 1.5), -1, Image.SCALE_SMOOTH);
+		
+tracker.addImage(image, 0);
+		
+		try 
+		{
+			tracker.waitForAll(); //main thread waits until image is loaded
+		} 
+		catch (InterruptedException ie) 
+		{
+			JOptionPane.showMessageDialog(this, "Unable to load image", "Image Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
 		add(new Display());
 		
 		pack();
-		
+		//screen size has to come after pack() method
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		
 		setLocation((screenSize.width - getWidth()) / 2 , (screenSize.height - getHeight()) / 2);
