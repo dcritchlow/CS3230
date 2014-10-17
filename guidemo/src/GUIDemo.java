@@ -10,6 +10,7 @@ import java.net.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 public class GUIDemo extends JFrame
 {
@@ -21,11 +22,13 @@ public class GUIDemo extends JFrame
 		setTitle("GUI Demo");
 //		setSize(600, 400);
 		
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
 			{
-				System.exit(0);
+//				System.exit(0);
+				close();
 			}
 		});
 		
@@ -55,7 +58,17 @@ public class GUIDemo extends JFrame
 		
 		pack();
 		
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		
+		setLocation((screenSize.width - getWidth()) / 2 , (screenSize.height - getHeight()) / 2);
+		
 		setVisible(true);
+	}
+	
+	private void close()
+	{
+		if (JOptionPane.showConfirmDialog(this, "Exit Program?", "Confirm Exit", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+			System.exit(0);
 	}
 	
 	class Display extends JPanel
