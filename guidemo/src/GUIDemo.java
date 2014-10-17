@@ -1,11 +1,11 @@
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.net.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -63,9 +63,9 @@ public class GUIDemo extends JFrame
 		
 		//change the size of the image
 //		image = image.getScaledInstance((int)(image.getWidth(this) * 1.5), -1, Image.SCALE_SMOOTH);
-		image = new ImageIcon(
-					image.getImage().getScaledInstance((int)(image.getIconWidth() * 1.5), -1, Image.SCALE_SMOOTH)
-				);
+//		image = new ImageIcon(
+//					image.getImage().getScaledInstance((int)(image.getIconWidth() * 1.5), -1, Image.SCALE_SMOOTH)
+//				);
 		
 //		tracker.addImage(image, 0);
 //		
@@ -101,13 +101,30 @@ public class GUIDemo extends JFrame
 		public Display()
 		{
 //			setPreferredSize(new Dimension(image.getWidth(this),image.getHeight(this)));
-			setPreferredSize(new Dimension(image.getIconWidth(),image.getIconHeight()));
+			setPreferredSize(new Dimension(image.getIconWidth(),
+					image.getIconHeight() + 25));
+//					image.getIconHeight()));
 		}
 		
 		public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
-			g.drawImage(image.getImage(), 0, 0, this);
+//			g.drawImage(image.getImage(), 0, 0, this);
+			image.paintIcon(this, g, 0, 0);
+			
+			// add text caption to bottom of window
+			String caption = "Park Avenue";
+			
+//			//adjust size of print hardcoded
+//			Font f = g.getFont().deriveFont(20F);
+			Font f = g.getFont();
+			f = f.deriveFont(f.getSize2D() * 1.2F);
+			g.setFont(f);
+			
+			FontMetrics fm = g.getFontMetrics();
+			int wid = fm.stringWidth(caption);
+			g.setColor(Color.RED);
+			g.drawString(caption, (getWidth() - wid) / 2, getHeight() - 10); // back off 10 pixels to move off the bottom of the screen
 		}
 	}
 	
