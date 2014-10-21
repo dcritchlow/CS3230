@@ -189,7 +189,7 @@ public class Die extends JPanel
 
 		f.setLayout(new FlowLayout());
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		f.setTitle("Dice");
 		dice[0] = new Die(Color.RED);
 		dice[0].setValue(1);
 		f.add(dice[0]);
