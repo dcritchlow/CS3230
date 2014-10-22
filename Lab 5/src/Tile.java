@@ -10,11 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class Tile extends JPanel
+public abstract class Tile extends JPanel
 {
 	public 	final static Color 		DARKGREEN  	= new Color(0, 139, 0);
 	public 	final static Color 		LIGHTGREEN 	= new Color(0, 255, 0);
-	private	final static Dimension	SIZE 		= new Dimension(92, 98);
+	public	final static Dimension	SIZE 		= new Dimension(92, 98);
 	
 	// static initialization block
 	static
@@ -72,16 +72,16 @@ public class Tile extends JPanel
 		return this.getClass().equals(other.getClass());
 	}
 	
-	public static void main(String[] args)
-	{
-		JFrame	frame = new JFrame();
-
-		frame.setLayout(new FlowLayout());
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Tile");
-		frame.add(new Tile());
-		frame.pack();
-		frame.setVisible(true);
-	}
+//	public static void main(String[] args)
+//	{
+//		JFrame	frame = new JFrame();
+//
+//		frame.setLayout(new FlowLayout());
+//		
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.setTitle("Tile");
+//		frame.add(new Tile());
+//		frame.pack();
+//		frame.setVisible(true);
+//	}
 }

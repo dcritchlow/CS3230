@@ -51,13 +51,13 @@ public class Lab5 extends JFrame
 		addComponent(new BambooTile(8), 2, 7);
 		addComponent(new BambooTile(9), 2, 8);
 
-		addComponent(new CharacterTile('N'), 3, 0);
-		addComponent(new CharacterTile('E'), 3, 1);
-		addComponent(new CharacterTile('W'), 3, 2);
-		addComponent(new CharacterTile('S'), 3, 3);
+		addComponent(new WindAndDragonTile('N'), 3, 0);
+		addComponent(new WindAndDragonTile('E'), 3, 1);
+		addComponent(new WindAndDragonTile('W'), 3, 2);
+		addComponent(new WindAndDragonTile('S'), 3, 3);
 
-		addComponent(new CharacterTile('C'), 4, 0);
-		addComponent(new CharacterTile('F'), 4, 1);
+		addComponent(new WindAndDragonTile('C'), 4, 0);
+		addComponent(new WindAndDragonTile('F'), 4, 1);
 		addComponent(new WhiteDragonTile(), 4, 2);
 
 		addComponent(new FlowerTile("Chrysanthemum"), 5, 0);
