@@ -5,6 +5,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,10 +17,45 @@ public abstract class Tile extends JPanel
 	public 	final static Color 		LIGHTGREEN 	= new Color(0, 255, 0);
 	public	final static Dimension	SIZE 		= new Dimension(92, 98);
 	
+	private static int[] xPoints = {0, 0, 10, 10};
+	private static int[] yPoints = {90, 20, 10, 80};
+	private static int[] xPointsMid = {10, 10, 20, 20};
+	private static int[] yPointsMid = {80, 10, 0, 70};
+	private static int[] xPointsSide = {80, 10, 0, 70};
+	private static int[] yPointsSide = {80, 80, 90, 90};
+	private static int[] xPointsSide2 = {90, 20, 10, 80};
+	private static int[] yPointsSide2 = {70, 70, 80, 80};
+	public static Polygon tileBottom;
+	public static Polygon tileMiddle;
+	public static Polygon tileSide;
+	public static Polygon tileSide2;
+	
+	protected static HashMap<String, String> chineseChars = new HashMap<String, String>();
+	
 	// static initialization block
 	static
 	{
+		tileBottom = new Polygon(xPoints, yPoints, xPoints.length);
+		tileMiddle = new Polygon(xPointsMid, yPointsMid, xPoints.length);
+		tileSide = new Polygon(xPointsSide, yPointsSide, xPoints.length);
+		tileSide2 = new Polygon(xPointsSide2, yPointsSide2, xPoints.length);
 		
+		chineseChars.put("1", "\u4E00");
+		chineseChars.put("2", "\u4E8C");
+		chineseChars.put("3", "\u4E09");
+		chineseChars.put("4", "\u56DB");
+		chineseChars.put("5", "\u4E94");
+		chineseChars.put("6", "\u516D");
+		chineseChars.put("7", "\u4E03");
+		chineseChars.put("8", "\u516B");
+		chineseChars.put("9", "\u4E5D");
+		chineseChars.put("N", "\u5317");
+		chineseChars.put("E", "\u6771");
+		chineseChars.put("W", "\u897F");
+		chineseChars.put("S", "\u5357");
+		chineseChars.put("C", "\u4E2D");
+		chineseChars.put("F", "\u767C");
+		chineseChars.put("wan", "\u842C");
 	}
 	
 	public Tile()
@@ -31,20 +67,7 @@ public abstract class Tile extends JPanel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		
-		int[] xPoints = {0, 0, 10, 10};
-		int[] yPoints = {90, 20, 10, 80};
-		Polygon tileBottom = new Polygon(xPoints, yPoints, 4);
-		int[] xPointsMid = {10, 10, 20, 20};
-		int[] yPointsMid = {80, 10, 0, 70};
-		Polygon tileMiddle = new Polygon(xPointsMid, yPointsMid, 4);
-		int[] xPointsSide = {80, 10, 0, 70};
-		int[] yPointsSide = {80, 80, 90, 90};
-		Polygon tileSide = new Polygon(xPointsSide, yPointsSide, 4);
-		int[] xPointsSide2 = {90, 20, 10, 80};
-		int[] yPointsSide2 = {70, 70, 80, 80};
-		Polygon tileSide2 = new Polygon(xPointsSide2, yPointsSide2, 4);
-		
+			
 		Graphics2D	g2 = (Graphics2D)g;
 		GradientPaint	grad = new GradientPaint(0, 0, DARKGREEN,
 					0, getHeight()/2, LIGHTGREEN, true);

@@ -8,6 +8,7 @@ public class WindAndDragonTile extends AbstractCharacterTile
 	public WindAndDragonTile(char symbol) 
 	{
 		super(symbol);
+		setToolTipText(toString());
 	}
 	
 	public void paintComponent(Graphics g)

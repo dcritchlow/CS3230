@@ -4,12 +4,12 @@ import java.net.*;
 import javax.swing.*;
 
 
-public class GUIDemo extends JFrame
+public class GUIDemoTeachers extends JFrame
 {
 	private	Image	image;									// Image version
 	//private	ImageIcon	image;							// ImageIcon version
 
-	public GUIDemo()
+	public GUIDemoTeachers()
 	{
 		setTitle("GUI Demonstration");
 		setSize(600, 400);								// unpacked version
@@ -148,6 +148,6 @@ public class GUIDemo extends JFrame
 
 	public static void main(String[] args)
 	{
-		new GUIDemo();
+		new GUIDemoTeachers();
 	}
 }

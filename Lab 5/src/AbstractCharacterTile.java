@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Objects;
 
 import javax.swing.JFrame;
@@ -8,6 +9,27 @@ import javax.swing.JScrollPane;
 public abstract class AbstractCharacterTile extends Tile
 {
 	protected char symbol;
+	
+//	static
+//	{
+//		HashMap chineseChars = new HashMap<String, String>();
+//		chineseChars.put("1", "4E00");
+//		chineseChars.put("2", "4E8C");
+//		chineseChars.put("3", "4E09");
+//		chineseChars.put("4", "56DB");
+//		chineseChars.put("5", "4E94");
+//		chineseChars.put("6", "516D");
+//		chineseChars.put("7", "4E03");
+//		chineseChars.put("8", "516B");
+//		chineseChars.put("9", "4E5D");
+//		chineseChars.put("North", "5317");
+//		chineseChars.put("East", "6771");
+//		chineseChars.put("West", "897F");
+//		chineseChars.put("South", "5357");
+//		chineseChars.put("Red", "4E2D");
+//		chineseChars.put("Green", "767C");
+//		chineseChars.put("wan", "842C");
+//	}
 	
 	public AbstractCharacterTile(char symbol)
 	{
