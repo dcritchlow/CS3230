@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,13 +12,21 @@ import javax.swing.JPanel;
 
 public class Tile extends JPanel
 {
-	public final static Color darkGreen     = new Color(0, 139, 0);
-	public final static Color lightGreen     = new Color(0, 255, 0);
+	public 	final static Color 		DARKGREEN  	= new Color(0, 139, 0);
+	public 	final static Color 		LIGHTGREEN 	= new Color(0, 255, 0);
+	private	final static Dimension	SIZE 		= new Dimension(120,120);
 	
-//	static
-//	{
-			
-//	}
+	// static initialization block
+	static
+	{
+		
+	}
+	
+	public Tile()
+	{
+		setPreferredSize(SIZE);
+	}
+	
 	
 	public void paintComponent(Graphics g)
 	{
@@ -36,8 +46,8 @@ public class Tile extends JPanel
 		Polygon tileSide2 = new Polygon(xPointsSide2, yPointsSide2, 4);
 		
 		Graphics2D	g2 = (Graphics2D)g;
-		GradientPaint	grad = new GradientPaint(0, 0, darkGreen,
-					0, getHeight()/2, lightGreen, true);
+		GradientPaint	grad = new GradientPaint(0, 0, DARKGREEN,
+					0, getHeight()/2, LIGHTGREEN, true);
 		g2.setPaint(grad);
 		
 		g.fillPolygon(tileBottom);
@@ -66,13 +76,12 @@ public class Tile extends JPanel
 	{
 		JFrame	frame = new JFrame();
 
-//		frame.setLayout(new FlowLayout());
+		frame.setLayout(new FlowLayout());
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Tile");
-		frame.setSize(200, 200);
 		frame.add(new Tile());
-//		frame.pack();
+		frame.pack();
 		frame.setVisible(true);
 	}
 }
