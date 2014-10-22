@@ -14,7 +14,7 @@ public class Tile extends JPanel
 {
 	public 	final static Color 		DARKGREEN  	= new Color(0, 139, 0);
 	public 	final static Color 		LIGHTGREEN 	= new Color(0, 255, 0);
-	private	final static Dimension	SIZE 		= new Dimension(120,120);
+	private	final static Dimension	SIZE 		= new Dimension(92, 98);
 	
 	// static initialization block
 	static
@@ -32,17 +32,17 @@ public class Tile extends JPanel
 	{
 		super.paintComponent(g);
 		
-		int[] xPoints = {20, 20, 30, 30};
-		int[] yPoints = {100, 30, 20, 90};
+		int[] xPoints = {0, 0, 10, 10};
+		int[] yPoints = {90, 20, 10, 80};
 		Polygon tileBottom = new Polygon(xPoints, yPoints, 4);
-		int[] xPointsMid = {30, 30, 40, 40};
-		int[] yPointsMid = {90, 20, 10, 80};
+		int[] xPointsMid = {10, 10, 20, 20};
+		int[] yPointsMid = {80, 10, 0, 70};
 		Polygon tileMiddle = new Polygon(xPointsMid, yPointsMid, 4);
-		int[] xPointsSide = {100, 30, 20, 90};
-		int[] yPointsSide = {90, 90, 100, 100};
+		int[] xPointsSide = {80, 10, 0, 70};
+		int[] yPointsSide = {80, 80, 90, 90};
 		Polygon tileSide = new Polygon(xPointsSide, yPointsSide, 4);
-		int[] xPointsSide2 = {110, 40, 30, 100};
-		int[] yPointsSide2 = {80, 80, 90, 90};
+		int[] xPointsSide2 = {90, 20, 10, 80};
+		int[] yPointsSide2 = {70, 70, 80, 80};
 		Polygon tileSide2 = new Polygon(xPointsSide2, yPointsSide2, 4);
 		
 		Graphics2D	g2 = (Graphics2D)g;
@@ -54,7 +54,7 @@ public class Tile extends JPanel
 		g.fillPolygon(tileSide);
 		
 		g2.setPaint(Color.WHITE);
-		g.fillRect(40, 10, 70, 70);
+		g.fillRect(20, 0, 70, 70);
 		g.fillPolygon(tileMiddle);
 		g.fillPolygon(tileSide2);
 		
@@ -63,7 +63,7 @@ public class Tile extends JPanel
 		g.drawPolygon(tileMiddle);
 		g.drawPolygon(tileSide);
 		g.drawPolygon(tileSide2);
-		g.drawRect(40, 10, 70, 70);
+		g.drawRect(20, 0, 70, 70);
 		g2.dispose();
 	}
 	
