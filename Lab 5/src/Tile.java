@@ -64,7 +64,6 @@ public abstract class Tile extends JPanel
 		g.drawPolygon(tileSide);
 		g.drawPolygon(tileSide2);
 		g.drawRect(20, 0, 70, 70);
-		g2.dispose();
 	}
 	
 	public boolean matches(Tile other)
