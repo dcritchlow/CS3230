@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class WindAndDragonTile extends AbstractCharacterTile
 {
@@ -6,5 +9,12 @@ public class WindAndDragonTile extends AbstractCharacterTile
 	{
 		super(symbol);
 	}
+	
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		g.setColor(Color.RED);
+		g.drawString(Character.toString(symbol), 75, 15);
 
+	}
 }
