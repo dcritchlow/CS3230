@@ -55,7 +55,7 @@ public class CharacterTile extends AbstractCharacterTile
 			g.setColor(Color.BLACK);
 			f = f.deriveFont(f.getSize2D() * 2F);
 			g.setFont(f);
-			g.drawString( chineseSymbol, (getWidth() - (wid - 12)) / 2, getHeight() - 70);
+			g.drawString( chineseSymbol, (getWidth() - (wid - 12)) / 2, getHeight() / 4);
 		}
 		if (symbol == 'N' || symbol == 'E' || symbol == 'W' || symbol == 'S' )
 		{
