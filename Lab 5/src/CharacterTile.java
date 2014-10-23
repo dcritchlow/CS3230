@@ -13,26 +13,6 @@ public class CharacterTile extends AbstractCharacterTile
 {
 	private String chineseSymbol;
 
-	static
-	{
-//		HashMap<String, String> chineseChars = new HashMap<String, String>();
-//		chineseChars.put("1", "\u4E00");
-//		chineseChars.put("2", "\u4E8C");
-//		chineseChars.put("3", "\u4E09");
-//		chineseChars.put("4", "\u56DB");
-//		chineseChars.put("5", "\u4E94");
-//		chineseChars.put("6", "\u516D");
-//		chineseChars.put("7", "\u4E03");
-//		chineseChars.put("8", "\u516B");
-//		chineseChars.put("9", "\u4E5D");
-//		chineseChars.put("North", "5317");
-//		chineseChars.put("East", "6771");
-//		chineseChars.put("West", "897F");
-//		chineseChars.put("South", "5357");
-//		chineseChars.put("Red", "4E2D");
-//		chineseChars.put("Green", "767C");
-//		chineseChars.put("wan", "842C");
-	}
 	public CharacterTile(char symbol) 
 	{
 		super(symbol);
@@ -40,35 +20,34 @@ public class CharacterTile extends AbstractCharacterTile
 		chineseSymbol = Tile.chineseChars.get(Character.toString(symbol));
 	}
 	
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		Font f = g.getFont();
-		FontMetrics fm = g.getFontMetrics();
-		int wid = fm.stringWidth(chineseSymbol);
-		
+
 		g.setColor(Color.RED);
 		g.drawString(Character.toString(symbol), 75, 15);
 		
 		if (symbol >= '1' && symbol <= '9') 
 		{
-			g.setColor(Color.BLACK);
-			f = f.deriveFont(f.getSize2D() * 2F);
-			g.setFont(f);
-			g.drawString( chineseSymbol, (getWidth() - (wid - 12)) / 2, getHeight() / 4);
+			drawSymbol(g, Color.BLACK);
 		}
-		if (symbol == 'N' || symbol == 'E' || symbol == 'W' || symbol == 'S' )
-		{
-			g.setColor(Color.BLACK);
-			f = f.deriveFont(f.getSize2D() * 4F);
-			g.setFont(f);
-			g.drawString( chineseSymbol, (getWidth() - (wid + 15)) / 2, getHeight() / 2);
-		}
+	}
+	
+	@Override
+	public void drawSymbol(Graphics g, Color c) 
+	{
+		Font f = g.getFont();
+		FontMetrics fm = g.getFontMetrics();
+		int wid = fm.stringWidth(chineseSymbol);
 		
+		g.setColor(c);
+		f = f.deriveFont(f.getSize2D() * 2F);
+		g.setFont(f);
+		g.drawString( chineseSymbol, (getWidth() - (wid - 5)) / 2, (getHeight() + 25) / 4);
 		
-		
-		
-
+		g.setColor(c.RED);
+		g.drawString(Tile.chineseChars.get("wan"), (getWidth() - (wid - 5)) / 2, (getHeight() + 25) / 2);
 	}
 	
 	public static void main(String[] args)
@@ -95,12 +74,6 @@ public class CharacterTile extends AbstractCharacterTile
 		tiles.add(new CharacterTile('7'));
 		tiles.add(new CharacterTile('8'));
 		tiles.add(new CharacterTile('9'));
-		tiles.add(new CharacterTile('N'));
-		tiles.add(new CharacterTile('E'));
-		tiles.add(new CharacterTile('W'));
-		tiles.add(new CharacterTile('S'));
-		tiles.add(new CharacterTile('C'));
-		tiles.add(new CharacterTile('F'));
 		frame.pack();
 		frame.setVisible(true);
 	}
