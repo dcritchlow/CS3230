@@ -19,6 +19,7 @@ public class WindAndDragonTile extends AbstractCharacterTile
 		setToolTipText(toString());
 	}
 	
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -43,7 +44,8 @@ public class WindAndDragonTile extends AbstractCharacterTile
 
 	}
 	
-	private void drawSymbol(Graphics g, Color c)
+	@Override
+	public void drawSymbol(Graphics g, Color c)
 	{
 		Font f = g.getFont();
 		FontMetrics fm = g.getFontMetrics();
@@ -52,7 +54,7 @@ public class WindAndDragonTile extends AbstractCharacterTile
 		g.setColor(c);
 		f = f.deriveFont(f.getSize2D() * 4.5F);
 		g.setFont(f);
-		g.drawString( chineseSymbol, (getWidth() - (wid + 20) ) / 2, (getHeight() + 20) / 2);
+		g.drawString( chineseSymbol, (getWidth() - (wid + 25) ) / 2, (getHeight() + 20) / 2);
 	}
 	
 	public static void main(String[] args)
