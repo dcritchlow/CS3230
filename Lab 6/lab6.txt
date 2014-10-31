@@ -19,6 +19,11 @@ boolean isTileOpen(Tile t) //(int x, int y, int z)
 	(tiles[t.x-1, t.y, t.z] = null || tiles[t.x+1, t.y, t.z] == null);
 }
 
+void positionTile(Tile t, int x, int y, int z)
+{
+	// Give Tile constructor the coordinates it sits on the board
+}
+
 Special cases (test four tiles with if-statements)
 	store in main array (adjust row)
 	array
