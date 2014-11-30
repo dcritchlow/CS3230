@@ -1,0 +1,44 @@
+Tile[][][] tiles = new Tile[xDim][yDim][zDim];
+
+// version 1
+boolean isTileOpen(Tile t) //(int x, int y, int z)
+{
+	return tiles[t.z+1, t.y, t.z] = null &&
+	(tiles[t.x-1, t.y, t.z] = null || tiles[t.x+1, t.y, t.z] == null);
+}
+
+// version 2
+boolean isTileOpen(Tile t) //(int x, int y, int z)
+{
+	if (t.x - 1 < 0 || x + 1 >= xDim)
+		return false;
+	if (t.z + 1 == zDim) // top layer
+		return tiles[t.x - 1, y, z] == null || tiles[t.x + 1, y, z] == null;
+	else
+		return tiles[t.z + 1] = null &&
+	(tiles[t.x-1, t.y, t.z] = null || tiles[t.x+1, t.y, t.z] == null);
+}
+
+void positionTile(Tile t, int x, int y, int z)
+{
+	// Give Tile constructor the coordinates it sits on the board
+}
+
+Special cases (test four tiles with if-statements)
+	store in main array (adjust row)
+	array
+	separate variables
+Data Structure to indicated starting point
+	ending point
+	length
+
+//workable but he abandoned due to large methods.
+Arrays and Memory Mapping
+	row major storage order
+	RMaddr = i * ncols + j
+	i = RMaddr / ncols
+	j = RMaddr % ncols
+
+for each layer you will have to add or subtract a constant 
+
+// last one and the best one 27:00 in video
