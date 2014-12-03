@@ -1,13 +1,6 @@
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.util.HashMap;
 import java.util.Objects;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 
 public abstract class AbstractCharacterTile extends Tile

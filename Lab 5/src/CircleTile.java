@@ -13,7 +13,71 @@ public class CircleTile extends RankTile
 	{
 		super(rank);
 		setToolTipText(toString());
-		circles[rank -1] = new Circle(25, 25, Color.BLACK);
+		switch(rank){
+		case 1:
+			circles[0] = new Pancake( 49, 29, Color.RED);
+			break;
+		case 2:
+			circles[0] = new Circle(45 + 3, 35 - 21, MYGREEN);
+			circles[1] = new Circle(45 + 3, 35 + 9, Color.RED);
+			break;
+		case 3:
+			circles[0] = new Circle(25, 5, Color.BLUE);
+			circles[1] = new Circle(49, 29, Color.RED);
+			circles[2] = new Circle(72, 52, MYGREEN);
+			break;
+		case 4:
+			circles[0] = new Circle(45 - 12, 35 - 21, Color.BLUE);
+			circles[1] = new Circle(45 - 12, 35 + 9, MYGREEN);
+			circles[2] = new Circle(45 + 18, 35 - 21, MYGREEN);
+			circles[3] = new Circle(45 + 18, 35 + 9, Color.BLUE);
+			break;
+		case 5:
+			circles[0] = new Circle(25, 5, Color.BLUE);
+			circles[1] = new Circle(49, 29, Color.RED);
+			circles[2] = new Circle(72, 52, Color.BLUE);
+			circles[3] = new Circle(72, 5, MYGREEN);
+			circles[4] = new Circle(25, 52, MYGREEN);
+			break;
+		case 6:
+			circles[0] = new Circle(45 - 12, 5, MYGREEN);
+			circles[1] = new Circle(45 + 18, 5, MYGREEN);
+			circles[2] = new Circle(45 - 12, 29, Color.RED);
+			circles[3] = new Circle(45 + 18, 29, Color.RED);
+			circles[4] = new Circle(45 - 12, 52, Color.RED);
+			circles[5] = new Circle(45 + 18, 52, Color.RED);
+			break;
+		case 7:
+			circles[0] = new Circle(25, 5, MYGREEN);
+			circles[1] = new Circle(49, 15, MYGREEN);
+			circles[2] = new Circle(72, 27, MYGREEN);
+			circles[3] = new Circle(45 - 12, 38, Color.RED);
+			circles[4] = new Circle(45 + 18, 38, Color.RED);
+			circles[5] = new Circle(45 - 12, 52, Color.RED);
+			circles[6] = new Circle(45 + 18, 52, Color.RED);
+			break;
+		case 8:
+			circles[0] = new Circle(45 - 12, 2, Color.BLUE);
+			circles[1] = new Circle(45 + 18, 2, Color.BLUE);
+			circles[2] = new Circle(45 - 12, 20, Color.BLUE);
+			circles[3] = new Circle(45 + 18, 20, Color.BLUE);
+			circles[4] = new Circle(45 - 12, 38, Color.BLUE);
+			circles[5] = new Circle(45 + 18, 38, Color.BLUE);
+			circles[6] = new Circle(45 + 18, 55, Color.BLUE);
+			circles[7] = new Circle(45 - 12, 55, Color.BLUE);
+			break;
+		case 9:
+			circles[0] = new Circle(25, 5, MYGREEN);
+			circles[1] = new Circle(49, 5, MYGREEN);
+			circles[2] = new Circle(72, 5, MYGREEN);
+			circles[3] = new Circle(25, 29, Color.RED);
+			circles[4] = new Circle(49, 29, Color.RED);
+			circles[5] = new Circle(72, 29, Color.RED);
+			circles[6] = new Circle(25, 52, Color.BLUE);
+			circles[7] = new Circle(49, 52, Color.BLUE);
+			circles[8] = new Circle(72, 52, Color.BLUE);
+			break;
+		}
 	}
 
 	@Override
@@ -22,6 +86,7 @@ public class CircleTile extends RankTile
 		return "Circle " + rank ;
 	}
 	
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);

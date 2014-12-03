@@ -4,14 +4,14 @@ import	java.util.*;
 import	javax.swing.*;
 
 
-public class Lab5 extends JFrame
+public class Lab5_original extends JFrame
 {
 	private	GridBagLayout		layout = new GridBagLayout();
 	private	GridBagConstraints	constraints = new GridBagConstraints();
 	private	JPanel			tilePanel = new JPanel(layout);
 
 
-	public Lab5()
+	public Lab5_original()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Mah Jong Tiles Demo");
@@ -86,7 +86,7 @@ public class Lab5 extends JFrame
 
 	public static void main(String[] args)
 	{
-		new Lab5();
+		new Lab5_original();
 	}
 }
 

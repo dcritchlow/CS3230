@@ -2,8 +2,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.util.HashMap;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -46,7 +44,7 @@ public class CharacterTile extends AbstractCharacterTile
 		g.setFont(f);
 		g.drawString( chineseSymbol, (getWidth() - (wid - 5)) / 2, (getHeight() + 25) / 4);
 		
-		g.setColor(c.RED);
+		g.setColor(Color.RED);
 		g.drawString(Tile.chineseChars.get("wan"), (getWidth() - (wid - 5)) / 2, (getHeight() + 25) / 2);
 	}
 	

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 public class Circle
 {
+	
 	private int x;
 	private int y;
 	private Color c;
@@ -19,6 +20,9 @@ public class Circle
 	public void draw(Graphics g)
 	{
 		g.setColor(c);
-		g.drawOval(x, y, 5, 5);
+		g.fillOval(x, y, 12 , 12);
+		g.setColor(Color.WHITE);
+		g.drawLine(x+4, y+4, x+8, y+8);
+		g.drawLine(x+8, y+4, x+4, y+8);
 	}
 }
